@@ -36,7 +36,7 @@ echo $MASTER_IP $MASTER_NAME > /tmp/hosts.$$
 
 # Update ssh config file to ignore unknow host
 # Note all settings are for azureuser, NOT root
-sudo -u $ADMIN_USERNAME sh -c "mkdir /home/$ADMIN_USERNAME/.ssh/;echo Host worker\* > /home/$ADMIN_USERNAME/.ssh/config; echo StrictHostKeyChecking no >> /home/$ADMIN_USERNAME/.ssh/config; echo UserKnownHostsFile=/dev/null >> /home/$ADMIN_USERNAME/.ssh/config"
+sudo -u $ADMIN_USERNAME sh -c "mkdir -p /home/$ADMIN_USERNAME/.ssh/;echo Host worker\* > /home/$ADMIN_USERNAME/.ssh/config; echo StrictHostKeyChecking no >> /home/$ADMIN_USERNAME/.ssh/config; echo UserKnownHostsFile=/dev/null >> /home/$ADMIN_USERNAME/.ssh/config"
 
 # Generate a set of sshkey under /honme/azureuser/.ssh if there is not one yet
 if ! [ -f /home/$ADMIN_USERNAME/.ssh/id_rsa ]; then
